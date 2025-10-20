@@ -1,9 +1,9 @@
 Getting Started with Docker
 ===========================
 
-The simplest way to get started with RTB4Free is to use Docker Compose to install all components
+The simplest way to get started with Adnexus is to use Docker Compose to install all components
 onto a single system, so that you can experience the functionality and quickly see
-if RTB4FREE is right for your business.
+if ADNEXUS is right for your business.
 
 .. note::
   All services are installed on a single machine in this installation method.  This
@@ -53,7 +53,7 @@ Build the project.  From the directory where you saved the docker-compose.yml fi
 
     docker-compose up -d
 
-You should see containers starting each RTB4Free component.
+You should see containers starting each Adnexus component.
 
 Looking around
 --------------
@@ -84,7 +84,7 @@ To view the containers:
 
 .. prompt:: bash $
 
-    docker stack ps rtb4free
+    docker stack ps adnexus
 
 You should see the following response.
 
@@ -94,7 +94,7 @@ You should see the following response.
 
 After the system is started, you can try the following actions.
 
-* Access the campaing manager by opening a browser to URL http://localhost:3000/. You can log in with user ID demo@rtb4free.com, password rtb4free.
+* Access the campaing manager by opening a browser to URL http://localhost:3000/. You can log in with user ID demo@ad.nexus, password adnexus.
 	* View how a sample campaign is defined.
 	* View how a sample creative is defined.
 	* View how a sample target is defined.
@@ -114,9 +114,9 @@ After the system is started, you can try the following actions.
 External resources
 ------------------
 
-Here are some external resources to help you learn more about RTB4FREE.
+Here are some external resources to help you learn more about ADNEXUS.
 
-* `RTB4FREE documentation`_
+* `ADNEXUS documentation`_
 
 
-.. _RTB4FREE documentation: http://www.rtb4free.com/doc_index
+.. _ADNEXUS documentation: http://www.ad.nexus/doc_index

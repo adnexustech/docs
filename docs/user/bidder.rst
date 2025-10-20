@@ -1,7 +1,7 @@
 Bidder
 ======
 
-The Bidder engine is the key component of the RTB4FREE platform. It interfaces
+The Bidder engine is the key component of the ADNEXUS platform. It interfaces
 directly with the SSP exchanges using OpenRTB protocols or proprietary protocols,
 if necessary, such as Google AdX or OpenX.
 

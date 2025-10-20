@@ -1,5 +1,5 @@
 #
-# Contains the full rtb4free stack (zookeeper, kafka, zerospike, bidder, crosstalk, db, web, elastic, logstash, simulator)
+# Contains the full adnexus stack (zookeeper, kafka, zerospike, bidder, crosstalk, db, web, elastic, logstash, simulator)
 #
 version: '3.5'
 
@@ -32,7 +32,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   zerospike:
-    image: rtb4free/zerospike
+    image: adnexus/zerospike
     environment:
       BROKERLIST: "kafka:9092"
     ports:
@@ -49,7 +49,7 @@ services:
     command: bash -c "sleep 5 && ./wait-for-it.sh kafka:9092 -t 120 && sleep 1; ./zerospike"
 
   bidder:
-    image: rtb4free/bidder
+    image: adnexus/bidder
     environment:
       # GDPR mode - set to true if operating inside a region that enforces GDPR
       GDPR_MODE: "false"
@@ -102,11 +102,11 @@ services:
       # - r4f_control
       # - r4f_rtb
       - r4f_net
-    command: bash -c "sleep 5 && ./wait-for-it.sh kafka:9092 -t 120 && ./wait-for-it.sh zerospike:6000 -t 120 && sleep 1; ./rtb4free"
+    command: bash -c "sleep 5 && ./wait-for-it.sh kafka:9092 -t 120 && ./wait-for-it.sh zerospike:6000 -t 120 && sleep 1; ./adnexus"
 
   # Enable if you'd like to use the bidding simulator to test connections
   simulator:
-    image: rtb4free/bidder
+    image: adnexus/bidder
     environment:
       BIDDER: "bidder:8080"
       WIN:    "10"
@@ -120,7 +120,7 @@ services:
     command: bash -c "./wait-for-it.sh bidder:8080 -t 120 && sleep 60;  ./load-elastic -host $$BIDDER -win $$WIN -pixel $$PIXEL -click $$CLICK -sleep $$SLEEP"
 
   crosstalk:
-    image: rtb4free/crosstalk
+    image: adnexus/crosstalk
     environment:
       REGION: "US"
       GHOST: "elastic"
@@ -128,8 +128,8 @@ services:
       BROKERLIST: "kafka:9092"
       PUBSUB: "zerospike"
       CONTROL: "8100"
-      JDBC: "jdbc:mysql://db/rtb4free?user=rtb4free&password=rtb4free"
-      PASSWORD: "rtb4free"
+      JDBC: "jdbc:mysql://db/adnexus?user=adnexus&password=adnexus"
+      PASSWORD: "adnexus"
     depends_on:
       - kafka
       - zerospike
@@ -148,12 +148,12 @@ services:
       - '3306:3306'
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=rtb4free
-      - MYSQL_DATABASE=rtb4free
-      - MYSQL_USER=rtb4free
-      - MYSQL_PASSWORD=rtb4free
+      - MYSQL_ROOT_PASSWORD=adnexus
+      - MYSQL_DATABASE=adnexus
+      - MYSQL_USER=adnexus
+      - MYSQL_PASSWORD=adnexus
     healthcheck:
-        test: ["CMD-SHELL", "mysqladmin -h 'localhost' -u root -prtb4free ping --silent"]
+        test: ["CMD-SHELL", "mysqladmin -h 'localhost' -u root -padnexus ping --silent"]
         interval: 30s
         timeout: 30s
         retries: 3
@@ -164,16 +164,16 @@ services:
     command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
 
   web:
-    image: rtb4free/campaign-manager
+    image: adnexus/campaign-manager
     ports:
       - "3000:3000"
     environment:
-      - CUSTOMER_NAME=RTB4FREE
+      - CUSTOMER_NAME=ADNEXUS
       - DB_HOST=db
       - DB_PORT=3306
-      - DB_USERNAME=rtb4free
-      - DB_PASSWORD=rtb4free
-      - DB_NAME=rtb4free
+      - DB_USERNAME=adnexus
+      - DB_PASSWORD=adnexus
+      - DB_NAME=adnexus
       - ELASTICSEARCH_ENABLE=true
       - ELASTICSEARCH_HOST=elastic:9200
       - ELASTICSEARCH_KIBANA_URL=http://kibana:5601/

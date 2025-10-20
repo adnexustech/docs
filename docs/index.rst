@@ -1,13 +1,13 @@
-RTB4FREE: Reach your audience
+ADNEXUS: Reach your audience
 ==========================================
 
-Welcome to the `RTB4FREE`_ documentation hub.  Here you can find the online manual
-and living documentation repository for RTB4FREE, the leading digital advertising
+Welcome to the `ADNEXUS`_ documentation hub.  Here you can find the online manual
+and living documentation repository for ADNEXUS, the leading digital advertising
 platform for businesses who want to reach their audience on the open web.
 
 Living manual
     Documentation is updated in the same manner as code - and a build is made for
-    each version of RTB4FREE.  You can easily view current and previous versions
+    each version of ADNEXUS.  You can easily view current and previous versions
     of documentation from this website.
 
 International first
@@ -20,14 +20,14 @@ Free and open source
     The documentation is built like our software - community driven, open source,
     free for all to view.
 
-.. _RTB4FREE: http://rtb4free.com/
+.. _ADNEXUS: http://ad.nexus/
 
 
-Getting Started With RTB4FREE
+Getting Started With ADNEXUS
 -----------------------------
 
-If you are new to RTB4FREE, the first thing you will probably want to do is demo
-the platform to see if it is right for your needs.  While RTB4FREE is a fully functional
+If you are new to ADNEXUS, the first thing you will probably want to do is demo
+the platform to see if it is right for your needs.  While ADNEXUS is a fully functional
 platform capable of handling advertising on a massive scale, it is also simple to
 install for demo purposes.
 

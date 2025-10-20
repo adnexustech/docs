@@ -1,35 +1,35 @@
-# RTB4FREE
+# ADNEXUS
 
-RTB4FREE is an enterprise strength bidding platform for RTB based digital advertising.  RTB4FREE has the following functionality:
+ADNEXUS is an enterprise strength bidding platform for RTB based digital advertising.  ADNEXUS has the following functionality:
 
 1. Campaign management
 2. Data management (DMP) capability
 3. Bidding using many different strategies
 4. Analytics on historical media and pricing information
 
-The [RTB4FREE](https://github.com/RTB4FREE) organization on Github contains all of the repos to run a fully scalable system.
+The [ADNEXUS](https://github.com/ADNEXUS) organization on Github contains all of the repos to run a fully scalable system.
 
-The RTB4FREE/[rtb4free](https://github.com/RTB4FREE/rtb4free) repo is where all RTB4FREE user documentation, developer documentation, and API explorer documentation live.
+The ADNEXUS/[adnexus](https://github.com/ADNEXUS/adnexus) repo is where all ADNEXUS user documentation, developer documentation, and API explorer documentation live.
 
-## Viewing RTB4FREE Documentation
+## Viewing ADNEXUS Documentation
 
 To view the documentation, navigate to:
 
-https://rtb4free.readthedocs.io/en/latest/
+https://adnexus.readthedocs.io/en/latest/
 
-## Building RTB4FREE Documentation
+## Building ADNEXUS Documentation
 
-To build a local copy of the RTB4FREE documentation, follow these steps:
+To build a local copy of the ADNEXUS documentation, follow these steps:
 
-### Clone the rtb4free repo
+### Clone the adnexus repo
 
 Make a local directory and clone this repo:
 
 ```
-mkdir rtb4free
-cd rtb4free
-git clone git@github.com:switzer/rtb4free.git
-cd rtb4free
+mkdir adnexus
+cd adnexus
+git clone git@github.com:switzer/adnexus.git
+cd adnexus
 ```
 ### Build the user documentation
 
@@ -40,7 +40,7 @@ cd docs
 make html
 ```
 
-This will build HTML doc in the `rtb4free/docs/_build/html` directory.  Open the `index.html` file to view the documentation on your local system.
+This will build HTML doc in the `adnexus/docs/_build/html` directory.  Open the `index.html` file to view the documentation on your local system.
 
 
 

@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'RTB4FREE'
+project = 'ADNEXUS'
 copyright = '2019, Ben Faul, Peter Loh, Scott Switzer'
 author = 'Ben Faul, Peter Loh, Scott Switzer'
 
@@ -104,7 +104,7 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'RTB4FREEdoc'
+htmlhelp_basename = 'ADNEXUSdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -131,7 +131,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'RTB4FREE.tex', 'RTB4FREE Documentation',
+    (master_doc, 'ADNEXUS.tex', 'ADNEXUS Documentation',
      'Ben Faul, Peter Loh, Scott Switzer', 'manual'),
 ]
 
@@ -141,7 +141,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'rtb4free', 'RTB4FREE Documentation',
+    (master_doc, 'adnexus', 'ADNEXUS Documentation',
      [author], 1)
 ]
 
@@ -152,8 +152,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'RTB4FREE', 'RTB4FREE Documentation',
-     author, 'RTB4FREE', 'One line description of project.',
+    (master_doc, 'ADNEXUS', 'ADNEXUS Documentation',
+     author, 'ADNEXUS', 'One line description of project.',
      'Miscellaneous'),
 ]
 

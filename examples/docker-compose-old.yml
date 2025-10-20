@@ -24,7 +24,7 @@ services:
     command: bash -c "sleep 5 && ./wait-for-it.sh kafka:9092 -t 120 && sleep 1; ./zerospike"
 
   bidder:
-    image: jacamars/rtb4free:v1
+    image: jacamars/adnexus:v1
     environment:
       BROKERLIST: "kafka:9092"
       PUBSUB: "zerospike"
@@ -39,7 +39,7 @@ services:
     depends_on:
       - kafka
       - zerospike
-    command: bash -c "sleep 5 && ./wait-for-it.sh kafka:9092 -t 120 && ./wait-for-it.sh zerospike:6000 -t 120 && sleep 1; ./rtb4free"
+    command: bash -c "sleep 5 && ./wait-for-it.sh kafka:9092 -t 120 && ./wait-for-it.sh zerospike:6000 -t 120 && sleep 1; ./adnexus"
 
   crosstalk:
     image: jacamars/crosstalk:v1
@@ -50,24 +50,24 @@ services:
       BROKERLIST: "kafka:9092"
       PUBSUB: "zerospike"
       CONTROL: "8100"
-      JDBC: "jdbc:mysql://mysql/rtb4free?user=rtb4free&password=rtb4free"
-      PASSWORD: "rtb4free"
+      JDBC: "jdbc:mysql://mysql/adnexus?user=adnexus&password=adnexus"
+      PASSWORD: "adnexus"
     depends_on:
       - kafka
       - zerospike
 
   mysql:
-    image: rtb4free/mysql-demo
+    image: adnexus/mysql-demo
     volumes:
       - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=rtb4free
-      - MYSQL_DATABASE=rtb4free
-      - MYSQL_USER=rtb4free
-      - MYSQL_PASSWORD=rtb4free
+      - MYSQL_ROOT_PASSWORD=adnexus
+      - MYSQL_DATABASE=adnexus
+      - MYSQL_USER=adnexus
+      - MYSQL_PASSWORD=adnexus
 
   web:
     image: ploh/rtbadmin_open
@@ -75,19 +75,19 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - CUSTOMER_NAME=RTB4FREE
-      - RTB4FREE_DATABASE_HOST=mysql
-      - RTB4FREE_DATABASE_PORT=3306
-      - RTB4FREE_DATABASE_USERNAME=rtb4free
-      - RTB4FREE_DATABASE_PASSWORD=rtb4free
-      - RTB4FREE_DATABASE_NAME=rtb4free
+      - CUSTOMER_NAME=ADNEXUS
+      - ADNEXUS_DATABASE_HOST=mysql
+      - ADNEXUS_DATABASE_PORT=3306
+      - ADNEXUS_DATABASE_USERNAME=adnexus
+      - ADNEXUS_DATABASE_PASSWORD=adnexus
+      - ADNEXUS_DATABASE_NAME=adnexus
       - ELASTICSEARCH_ENABLE=true
       - ELASTICSEARCH_HOST=elastic1:9200
       - ELASTICSEARCH_KIBANA_URL=http://kibana:5601/
       - RTB_CROSSTALK_REGION_HOSTS={"US" => "crosstalk"}
       - RTB_CROSSTALK_PORT=8100
-      - RTB_CROSSTALK_USER=rtb4free
-      - RTB_CROSSTALK_PASSWORD=rtb4free
+      - RTB_CROSSTALK_USER=adnexus
+      - RTB_CROSSTALK_PASSWORD=adnexus
 
   elastic:
     image: ploh/elastic_pwd
@@ -110,7 +110,7 @@ services:
       - "5601:5601"
 
   simulator:
-    image: jacamars/rtb4free:v1
+    image: jacamars/adnexus:v1
     environment:
       BIDDER: "bidder:8080"
       WIN:    "10"
